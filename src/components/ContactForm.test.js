@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ContactForm from './ContactForm';
 
 test('ContactForm registers new users', async() => {
-        render(<ContactForm />);
+    render(<ContactForm />);
 
     // inputs: firstName, lastName, email, message
     const firstNameInput = screen.getByLabelText(/First Name*/i);
@@ -21,14 +21,10 @@ test('ContactForm registers new users', async() => {
     const submitButton = screen.getByRole('button');
     fireEvent.click(submitButton);
 
-    //emick lauren@lauren.com hello world
     // assert that new user is submitted
-    // const newFirstName = screen.findByText(/lauren/i);
-    // expect(newFirstName).toBeInTheDocument();
-
     const results = await screen.findByTestId('results');
     expect(results).toBeInTheDocument();
-    console.log(results);
+    // console.log(results);
 
 });
 
